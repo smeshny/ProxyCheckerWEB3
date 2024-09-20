@@ -25,3 +25,7 @@ RESULTS_DIR = "data/results/"
 # Sleep times
 SLEEP_TIME_BETWEEN_RPCS = random.randint(1, 2)
 SLEEP_TIME_BETWEEN_ACCOUNTS = random.randint(5, 10)
+
+
+SAVE_TABLE = True  # Option to save the results table
+CHECK_INTERVAL = 10  # Interval in seconds to re-run the check
