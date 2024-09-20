@@ -1,7 +1,7 @@
 import asyncio
-from utils.rpc_checker import RPCChecker
-from utils.proxy_manager import ProxyManager
-from utils.result_processor import ResultProcessor
+from src.rpc_checker import RPCChecker
+from src.proxy_manager import ProxyManager
+from src.result_processor import ResultProcessor
 from utils.logger import Logger
 from utils.logger import GREEN, RESET
 from data.config import RPCS, PROXY_FILE, SLEEP_TIME_BETWEEN_ACCOUNTS, SAVE_TABLE, CHECK_INTERVAL
