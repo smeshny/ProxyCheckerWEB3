@@ -17,7 +17,13 @@ Continuously monitors the health and performance of proxy servers in relation to
    cd ProxyCheckerWEB3
    ```
 
-3. Install dependencies:
+3. Create and activate a virtual environment:
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+4. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
@@ -45,6 +51,9 @@ Continuously monitors the health and performance of proxy servers in relation to
 
 Check results are saved in the `data/results/` directory in Excel format.
 
+## License
+
+[Specify your license, e.g., MIT]
 
 ## Author
 
