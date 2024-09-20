@@ -18,18 +18,18 @@ async def check_proxies():
     total_proxies = len(proxies_list)
     working_proxies = 0
 
-    for index, proxy in enumerate(proxies_list):
-        results = await rpc_checker.check_all_rpcs(proxy)
+    for index, (proxy_name, proxy) in enumerate(proxies_list):
+        results = await rpc_checker.check_all_rpcs(proxy_name, proxy)
 
         working_rpcs = sum(1 for result in results if result["status"] != "error")
         total_rpcs = len(results)
         remaining_proxies = total_proxies - (index + 1)
-        Logger.log_info(f"Proxy: {proxy}, Working RPCs: {working_rpcs}/{total_rpcs}, Remaining Proxies: {remaining_proxies}", color=GREEN)
+        Logger.log_info(f"Proxy: {proxy_name} ({proxy}), Working RPCs: {working_rpcs}/{total_rpcs}, Remaining Proxies: {remaining_proxies}", color=GREEN)
 
         if working_rpcs > 0:
             working_proxies += 1
 
-        combined_results.append({"proxy": proxy, "rpcs": results})
+        combined_results.append({"proxy_name": proxy_name, "proxy": proxy, "rpcs": results})
 
         await asyncio.sleep(SLEEP_TIME_BETWEEN_ACCOUNTS)
 

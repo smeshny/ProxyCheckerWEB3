@@ -19,7 +19,7 @@ RPCS = [
     # "https://blast-rpc.publicnode.com",
 ]
 
-PROXY_FILE = "data/proxies.txt"
+PROXY_FILE = "data/proxies.xlsx"
 RESULTS_DIR = "data/results/"
 
 # Sleep times
