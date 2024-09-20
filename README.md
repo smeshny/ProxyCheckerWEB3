@@ -9,7 +9,7 @@ Continuously monitors the health and performance of proxy servers in relation to
 
 1. Clone the repository:
    ```
-   git clone https://github.com/your-username/ProxyCheckerWEB3.git
+   git clone https://github.com/smeshny/ProxyCheckerWEB3.git
    ```
 
 2. Navigate to the project directory:
@@ -51,9 +51,6 @@ Continuously monitors the health and performance of proxy servers in relation to
 
 Check results are saved in the `data/results/` directory in Excel format.
 
-## License
-
-[Specify your license, e.g., MIT]
 
 ## Author
 
