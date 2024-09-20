@@ -45,10 +45,7 @@ Continuously monitors the health and performance of proxy servers in relation to
 
 Check results are saved in the `data/results/` directory in Excel format.
 
-## License
-
-[Specify your license, e.g., MIT]
 
 ## Author
 
-[Your name or username]
+[MimbleWimbleLAB](https://t.me/MimbleWimbleLAB)
