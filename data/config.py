@@ -2,10 +2,21 @@ import random
 
 # Constants
 RPCS = [
-    "https://base.drpc.org",
-    "https://rpc.blast.io",
+    # ETH
+    "https://eth.llamarpc.com",
+    # "https://eth.drpc.org",
+    # SCROLL
     "https://rpc.scroll.io",
-    "https://eth.llamarpc.com"
+    # "https://rpc.ankr.com/scroll",
+    # "https://scroll.drpc.org",
+    # BASE
+    # "https://rpc.ankr.com/base",
+    "https://base.drpc.org",
+    # "https://base.llamarpc.com",
+    # BLAST
+    "https://rpc.blast.io",
+    # "https://rpc.envelop.is/blast",
+    # "https://blast-rpc.publicnode.com",
 ]
 
 PROXY_FILE = "data/proxies.txt"
