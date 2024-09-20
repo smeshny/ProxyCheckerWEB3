@@ -1,5 +1,9 @@
 # ProxyCheckerWEB3
-Continuously monitors the health and performance of Web3 RPC endpoints via proxies
+Continuously monitors the health and performance of proxy servers in relation to Web3 RPC endpoints.
+
+## Requirements
+
+- Python 3.11
 
 ## Installation
 
