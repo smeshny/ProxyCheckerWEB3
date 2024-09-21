@@ -3,6 +3,7 @@ import datetime
 from openpyxl import load_workbook
 from openpyxl.styles import Alignment, PatternFill
 from data.config import RESULTS_DIR
+import os
 
 class ResultProcessor:
     def __init__(self):
@@ -27,6 +28,9 @@ class ResultProcessor:
         current_time = datetime.datetime.now()
         timestamp = current_time.strftime("%Y-%m-%d_%H-%M-%S")
         file_name = f"{RESULTS_DIR}rpc_results_{timestamp}.xlsx"
+
+        os.makedirs(os.path.dirname(file_name), exist_ok=True)
+
         df.to_excel(file_name, index=False)
 
         wb = load_workbook(file_name)
