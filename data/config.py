@@ -1,6 +1,3 @@
-import random
-
-# Constants
 RPCS = [
     # ETH
     "https://eth.llamarpc.com",
@@ -17,15 +14,19 @@ RPCS = [
     "https://rpc.blast.io",
     # "https://rpc.envelop.is/blast",
     # "https://blast-rpc.publicnode.com",
+    # Berachain
+    "https://bartio.rpc.berachain.com",
 ]
 
 PROXY_FILE = "data/proxies.xlsx"
 RESULTS_DIR = "data/results/"
 
-# Sleep times
-SLEEP_TIME_BETWEEN_RPCS = random.randint(1, 2)
-SLEEP_TIME_BETWEEN_ACCOUNTS = random.randint(1, 5)
+SLEEP_TIME_BETWEEN_RPCS = [1, 3] # Sleep time between RPCs checks in seconds
+SLEEP_TIME_BETWEEN_ACCOUNTS = [1, 5] # Sleep time between accounts checks in seconds
+CHECK_INTERVAL = 6 * 60 * 60  # Interval in seconds to re-run the check of all proxies
 
+SAVE_TABLE = True  # Option to save the results table, (!) every run -> new xlsx file (!)
 
-SAVE_TABLE = True  # Option to save the results table
-CHECK_INTERVAL = 10  # Interval in seconds to re-run the check
+SEND_NOTIFICATIONS = False
+TG_TOKEN = '' # https://t.me/BotFather
+TG_ID = '' # https://t.me/getmyid_bot

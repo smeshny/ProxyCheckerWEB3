@@ -1,4 +1,5 @@
 import asyncio
+import random
 from web3 import Web3
 from web3.providers.async_rpc import AsyncHTTPProvider
 from data.config import SLEEP_TIME_BETWEEN_RPCS
@@ -25,7 +26,7 @@ class RPCChecker:
         tasks = []
         
         for rpc in self.rpcs:
-            await asyncio.sleep(SLEEP_TIME_BETWEEN_RPCS)
+            await asyncio.sleep(random.uniform(*SLEEP_TIME_BETWEEN_RPCS))
             tasks.append(asyncio.create_task(self.check_rpc_with_proxy(rpc, proxy_name, proxy_url)))
             
         return await asyncio.gather(*tasks)
