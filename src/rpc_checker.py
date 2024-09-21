@@ -26,7 +26,7 @@ class RPCChecker:
         tasks = []
         
         for rpc in self.rpcs:
-            await asyncio.sleep(random.uniform(*SLEEP_TIME_BETWEEN_RPCS))
             tasks.append(asyncio.create_task(self.check_rpc_with_proxy(rpc, proxy_name, proxy_url)))
+            await asyncio.sleep(random.uniform(*SLEEP_TIME_BETWEEN_RPCS))
             
         return await asyncio.gather(*tasks)

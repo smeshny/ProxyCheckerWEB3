@@ -6,16 +6,12 @@ from src.result_processor import ResultProcessor
 from utils.custom_logger import logger
 from data.config import RPCS, PROXY_FILE, SLEEP_TIME_BETWEEN_ACCOUNTS, SAVE_TABLE, CHECK_INTERVAL
 
-async def process_proxy(index, proxy_name, proxy, rpc_checker, total_proxies):
-    await asyncio.sleep(index * random.uniform(*SLEEP_TIME_BETWEEN_ACCOUNTS))
+async def check_proxy(index, proxy_name, proxy, rpc_checker, total_proxies):
     results = await rpc_checker.check_all_rpcs(proxy_name, proxy)
 
     working_rpcs = sum(1 for result in results if result["status"] != "error")
     total_rpcs = len(results)
-    remaining_proxies = total_proxies - (index + 1)
-    logger.debug(f"Proxy: {proxy_name} "
-                    f"Working RPCs: {working_rpcs}/{total_rpcs} "
-                    f"Remaining Proxies: {remaining_proxies}")
+    logger.debug(f"Proxy: {proxy_name} Working RPCs: {working_rpcs}/{total_rpcs}. Check finished!")
     
     return (1 if working_rpcs > 0 else 0), {"proxy_name": proxy_name, "proxy": proxy, "rpcs": results}
 
@@ -28,10 +24,13 @@ async def check_proxies():
     total_proxies = len(proxies_list)
     logger.debug(f"Total proxies to check: {total_proxies}")
 
-    tasks = [process_proxy(index, proxy_name, proxy, rpc_checker, total_proxies)
-             for index, (proxy_name, proxy) in enumerate(proxies_list)]
+    proxy_tasks = []
+    for index, (proxy_name, proxy) in enumerate(proxies_list):
+        task = asyncio.create_task(check_proxy(index, proxy_name, proxy, rpc_checker, total_proxies))
+        proxy_tasks.append(task)
+        await asyncio.sleep(random.uniform(*SLEEP_TIME_BETWEEN_ACCOUNTS))
 
-    results = await asyncio.gather(*tasks, return_exceptions=True)
+    results = await asyncio.gather(*proxy_tasks, return_exceptions=True)
 
     working_proxies = 0
     combined_results = []
