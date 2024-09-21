@@ -1,5 +1,9 @@
 # ProxyCheckerWEB3
-Continuously monitors the health of proxy servers in relation to Web3 RPC endpoints. Well-suited for static server proxies.
+
+Continuously monitors the health of proxy servers in relation to Web3 RPC endpoints. Well-suited for static server proxies. Also, it can send status notifications to Telegram.
+
+![ProxyCheckerWEB3](README_image.png)
+
 
 ## Requirements
 
