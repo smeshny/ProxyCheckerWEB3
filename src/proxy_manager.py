@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+from utils.better_proxy import Proxy
 
 class ProxyManager:
     def __init__(self, proxy_file):
@@ -17,4 +18,10 @@ class ProxyManager:
 
         proxies = list(df.dropna().itertuples(index=False, name=None))
         
-        return proxies
+        processed_proxies = []
+        for name, proxy in proxies:
+            prossed_proxy = Proxy.from_str(proxy)
+            prossed_proxy = prossed_proxy.as_login_pass_host_port
+            processed_proxies.append([name, prossed_proxy])
+        
+        return processed_proxies
