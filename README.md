@@ -46,7 +46,7 @@ Continuously monitors the health of proxy servers in relation to Web3 RPC endpoi
    | Name10 | http://login:password@host:port  |
    ```
 
-2. Configure settings in the `data/config.py` file.
+2. Configure settings in the `data/config.py` file. Be cautious with the delay settings because the script works asynchronously. If the delays are too short, you might overwhelm the proxy or RPC provider.
 3. Run the script:
    ```
    python main.py
